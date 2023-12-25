@@ -1,32 +1,35 @@
 pipeline  {
-  agent {lable 'Jenkins-agent6'}
-  tool{
+  agent {lable 'Jenkins-agent'}
+  tools{
     jdk 'Java17'
     maven 'Maven3'
   }
   stages{
-    stage {  "(Cleanup workspace")  
+    stage   ("Cleanup workspace"){  
            steps {
-             cleanws()
+           cleanws()
+           }
     }
-    }
-    stage  ("Check out from SCM"){
+    
+    stage("Checkout from SCM"){
       steps {
-        git branch: 'main',credentiolsid: 'github', url: 'https://github.com/pvreddy646/register-app'
+        git branch: 'main',credentialsid: 'github', url: 'https://github.com/pvreddy646/register-app'
+      }
     }
-    }
+    
     stage( "Build Application"){
       steps{
-        sh "mvn cleanpackage"
-        
+        sh "mvn clean package"
+      }
+
     }
-    }
+    
     stage("Test application"){
       steps{
         sh "mvn test"
-      }
+      }  
     }
-      
-    }
-  }
-}
+  }  
+} 
+  
+
