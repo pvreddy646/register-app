@@ -5,7 +5,7 @@ pipeline  {
     maven 'maven3'
   }
   stages{
-    stage   ("Cleanup workspace"){  
+    stage ("Cleanup workspace"){  
            steps {
            cleanws()
            }
