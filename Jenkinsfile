@@ -1,8 +1,8 @@
 pipeline  {
-  agent {lable 'Jenkins-agent'}
+  agent {lable 'Jenkins-Agent'}
   tools{
-    jdk 'Java17'
-    maven 'Maven3'
+     jdk 'java17'
+    maven 'maven3'
   }
   stages{
     stage   ("Cleanup workspace"){  
@@ -13,7 +13,7 @@ pipeline  {
     
     stage("Checkout from SCM"){
       steps {
-        git branch: 'main',credentialsid: 'github', url: 'https://github.com/pvreddy646/register-app'
+        git branch: 'main',credentialsId: 'github', url: 'https://github.com/pvreddy646/register-app'
       }
     }
     
